@@ -42,6 +42,7 @@ $ cd $TUTORIAL_HOME/
 Run the following commands to build the application image:
 
 ```bash
+$ rm -vf $TUTORIAL_HOME/docker/app/*.tar.gz
 $ cp -vf dist/* $TUTORIAL_HOME/docker/app
 $ cd $TUTORIAL_HOME/docker/app
 $ docker image rm sample-api
