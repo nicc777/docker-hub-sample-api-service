@@ -12,6 +12,7 @@ It is a REST API that exposes everything needed to play within Docker or Kuberne
   - [Building the Base Image](#building-the-base-image)
   - [Building the Application Image](#building-the-application-image)
   - [Starting the app in Docker](#starting-the-app-in-docker)
+- [Pushing docker images to Docker Hub](#pushing-docker-images-to-docker-hub)
 
 
 # Building the Application
@@ -42,6 +43,8 @@ $ cd $TUTORIAL_HOME/
 Run the following commands to build the application image:
 
 ```bash
+$ docker container stop sample-api-service
+$ docker container rm sample-api-service
 $ rm -vf $TUTORIAL_HOME/docker/app/*.tar.gz
 $ cp -vf dist/* $TUTORIAL_HOME/docker/app
 $ cd $TUTORIAL_HOME/docker/app
@@ -97,4 +100,13 @@ $ docker logs sample-api-service
 [2020-07-28 04:26:58 +0000] [1] [INFO] Using worker: sync
 [2020-07-28 04:26:58 +0000] [8] [INFO] Booting worker with pid: 8
 172.17.0.1 - - [28/Jul/2020:04:28:10 +0000] "GET /version HTTP/1.1" 200 21 "-" "curl/7.64.1"
+```
+
+# Pushing docker images to Docker Hub
+
+Based on the [official documentation](), you can push your new images to Docker Hub. Below shows the example for pushing `version 2.0.0` to your repo, assuming you have called your repo `sample-api-service`:
+
+```bash
+$ docker tag sample-api:latest <your-username>/sample-api-service:v2
+$ docker push <your-username>/sample-api-service:v2
 ```
