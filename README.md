@@ -6,6 +6,14 @@ It is a REST API that exposes everything needed to play within Docker or Kuberne
 
 **Assumption**: The environment variable `TUTORIAL_HOME` points to the base path of the project (the path containing the project `.git/` directory).
 
+- [About](#about)
+- [Building the Application](#building-the-application)
+- [Docker Testing](#docker-testing)
+  - [Building the Base Image](#building-the-base-image)
+  - [Building the Application Image](#building-the-application-image)
+  - [Starting the app in Docker](#starting-the-app-in-docker)
+
+
 # Building the Application
 
 The `.gitignore` file excludes the built application, so depending on your needs, checkout the relevant branch of the application and prepare a build:
@@ -89,7 +97,3 @@ $ docker logs sample-api-service
 [2020-07-28 04:26:58 +0000] [8] [INFO] Booting worker with pid: 8
 172.17.0.1 - - [28/Jul/2020:04:28:10 +0000] "GET /version HTTP/1.1" 200 21 "-" "curl/7.64.1"
 ```
-
-
-
-
