@@ -15,6 +15,12 @@
 
 Here are some examples to familiarize you with Kubernetes. If you do not have a Kubernetes environment, consider something like [this k3s quick start](https://gist.github.com/nicc777/0f620c9eb2958f58173224f29b23a2ff) guide.
 
+Once you have a running cluster, and assuming you have followed the instructions for the `k3s quick start`, you can point your `kubectl` config to it (the example assumes the config file is saved in your home directory):
+
+```bash
+$ export KUBECONFIG=$HOME/k3s.yaml
+```
+
 You may also want to keep [this cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) nearby.
 
 # Creating a Namespace
