@@ -8,7 +8,11 @@ spec:
     matchLabels:
       app: sample-api
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1        # how many pods we can add at a time
+      maxUnavailable: 0  # maxUnavailable define how many pods can be unavailable
+                         # during the rolling update
   template:
     metadata:
       labels:
@@ -16,10 +20,29 @@ spec:
     spec:
       containers:
       - image: nicc777/sample-api-service:v2
+        imagePullPolicy: Always
         name: sample-api
         ports:
         - containerPort: 8080
           name: sample-api-port
+        livenessProbe:
+          httpGet:
+            path: /liveness
+            port: sample-api-port
+          failureThreshold: 1
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /version
+            port: sample-api-port
+          failureThreshold: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: sample-api-port
+          initialDelaySeconds: 5
+          periodSeconds: 5
         resources:
           limits:
             memory: "256Mi"

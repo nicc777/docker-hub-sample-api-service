@@ -8,6 +8,8 @@ It is a REST API that exposes everything needed to play within Docker or Kuberne
 
 **Assumption**: The environment variable `TUTORIAL_HOME` points to the base path of the project (the path containing the project `.git/` directory).
 
+The detailed Kubernetes intro is in the file [KUBERNETES.md](KUBERNETES.md)
+
 - [About](#about)
 - [Building the Application](#building-the-application)
 - [Docker Testing](#docker-testing)
