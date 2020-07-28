@@ -1,5 +1,7 @@
 # About
 
+This is the source repo for the Docker Hub [api-version-2](https://hub.docker.com/r/nicc777/sample-api-service) repo.
+
 This is a bare bones demonstration project for Docker and/or Kubernetes.
 
 It is a REST API that exposes everything needed to play within Docker or Kubernetes
