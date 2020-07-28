@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "venv/bin/python3"
+    "python.pythonPath": "venv/bin/python3",
+    "cSpell.words": [
+        "Walkthrough",
+        "kube",
+        "kubectl",
+        "nicc"
+    ]
 }
