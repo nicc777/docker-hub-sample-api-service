@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from datetime import datetime
+import socket
 
 app = Flask(__name__)
 api = Api(app)
@@ -23,6 +24,9 @@ probes = Probes()
 probes.liveness = True
 probes.readiness = True
 
+hostname = socket.gethostname()
+ip_address = socket.gethostbyname(hostname)
+
 
 class VersionCheck(Resource):
     def get(self):
@@ -32,6 +36,8 @@ class VersionCheck(Resource):
             'features': [
                 'Readiness can be toggled',
             ],
+            'hostname': hostname,
+            'ip_address': ip_address,
         }
 
 
