@@ -37,24 +37,24 @@ class VersionCheck(Resource):
 
 class Liveness(Resource):
     def get(self):
-        return {
-            'Alive': probes.liveness,
-        }
+        status = 410
+        if probes.liveness is True:
+            status = 200
+        return {'Alive': probes.liveness,}, status
 
 
 class Readiness(Resource):
     def get(self):
-        return {
-            'Ready': probes.readiness,
-        }
+        status = 410
+        if probes.readiness is True:
+            status = 200
+        return {'Ready': probes.readiness,}, status
 
 
 class ToggleReadiness(Resource):
     def get(self):
         probes.readiness = not probes.readiness
-        return {
-            'CommandStatus': 'Ok',
-        }
+        return {'CommandStatus': 'Ok',}
 
 
 api.add_resource(VersionCheck, '/version')
