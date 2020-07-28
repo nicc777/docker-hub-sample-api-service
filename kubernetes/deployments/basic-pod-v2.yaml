@@ -25,6 +25,12 @@ spec:
           port: service-port
         failureThreshold: 30
         periodSeconds: 10
+      readinessProbe:
+        httpGet:
+          path: /readiness
+          port: service-port
+        initialDelaySeconds: 5
+        periodSeconds: 5
       resources:
         requests:
           memory: "128Mi"
